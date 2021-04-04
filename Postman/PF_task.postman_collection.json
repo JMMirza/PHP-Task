@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "caf5e3f0-13db-40ed-8f37-ccdaf208a26b",
+		"name": "PF_task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost/Task1/config/signup.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "first_name",
+							"value": "Ahmed",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Ali",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ahmed@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "zxcvbn",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Task1/config/signup.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Task1",
+						"config",
+						"signup.php"
+					]
+				},
+				"description": "If you want to signup you have to use POST method and then you have to send First name as \"first_name\", Last name as \"Last_name\", Email as \"email\", and then Password as \"password\" these are key entries and you have to fill all fields  "
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/Task1/config/user_auth.php",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"}); "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "ali@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "zxcvbn",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Task1/config/user_auth.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Task1",
+						"config",
+						"user_auth.php"
+					]
+				},
+				"description": "if you have to login through POST method you have to send username and password as key entries and enter their values."
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/Task1/config/add_funds.php",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "amount",
+							"value": "89",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Task1/config/add_funds.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Task1",
+						"config",
+						"add_funds.php"
+					]
+				},
+				"description": "If you want to add funds first you have to  login adnd after that use POST method to add amount in your account . You have to send amount as \"amount\" these are key entries and its value\r\n\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/Task1/config/funds_transfer.php",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "janmuhammad@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "amount",
+							"value": "12",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Task1/config/funds_transfer.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Task1",
+						"config",
+						"funds_transfer.php"
+					]
+				},
+				"description": "If you want to transfer amount to other user you have to first login your account and using POST method you have to send Email of reciever as \"email\", and then Amount as \"amount\" these are key entries and you have to fill all fields\r\n\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/Task1/config/logout.php",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost/Task1/config/logout.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Task1",
+						"config",
+						"logout.php"
+					]
+				},
+				"description": "Using GET method you have to send request you will be logged out."
+			},
+			"response": []
+		}
+	]
+}
