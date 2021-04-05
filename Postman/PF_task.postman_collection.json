@@ -2,17 +2,34 @@
 	"info": {
 		"_postman_id": "caf5e3f0-13db-40ed-8f37-ccdaf208a26b",
 		"name": "PF_task",
+		"description": "In this i have created 6 API's i.e. create user, login user, forget password,funds transfer, add funds in your account. These have documentation you have to read it before user it.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "http://localhost/Task1/config/signup.php",
+			"name": "SignUp",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							""
+							"pm.sendRequest(\"https://postman-echo.com/get\", function (err, response) {\r",
+							"    console.log(response.json());\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(100);\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							"pm.test(\"Password is not null \", function () {\r",
+							"    \r",
+							"    pm.expect(jsonData.password).to.not.eql(\"\");\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -63,7 +80,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/Task1/config/user_auth.php",
+			"name": "SignIn",
 			"event": [
 				{
 					"listen": "test",
@@ -71,7 +88,16 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"}); "
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -107,12 +133,32 @@
 						"user_auth.php"
 					]
 				},
-				"description": "if you have to login through POST method you have to send username and password as key entries and enter their values."
+				"description": "if you want to login, you just have to use POST method and  send username and password as key entries and enter their values through body form data and you will be logged in."
 			},
 			"response": []
 		},
 		{
-			"name": "http://localhost/Task1/config/add_funds.php",
+			"name": "addFunds",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -121,7 +167,7 @@
 					"formdata": [
 						{
 							"key": "amount",
-							"value": "89",
+							"value": "390",
 							"type": "text"
 						}
 					]
@@ -143,7 +189,28 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/Task1/config/funds_transfer.php",
+			"name": "fundsTransfer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -152,12 +219,12 @@
 					"formdata": [
 						{
 							"key": "email",
-							"value": "janmuhammad@gmail.com",
+							"value": "janmuhammad@gmail.com0",
 							"type": "text"
 						},
 						{
 							"key": "amount",
-							"value": "12",
+							"value": "20",
 							"type": "text"
 						}
 					]
@@ -179,7 +246,80 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost/Task1/config/logout.php",
+			"name": "forgotPass",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "jan@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/Task1/config/forget_pass.php",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"Task1",
+						"config",
+						"forget_pass.php"
+					]
+				},
+				"description": "if you have forgotten your password do not worry  through POST method you have to send email as key entries and enter their values we will receive new password."
+			},
+			"response": []
+		},
+		{
+			"name": "logOut",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
