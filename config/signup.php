@@ -9,15 +9,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $user = new operations();
         // sending data to the function setUser with parameters.
         $result = $user->setUser($_POST['first_name'],$_POST['last_name'],$_POST['email'],$_POST['password']);
-        // if($result==1){
-        //     // echo "successfully created a user";
-        //     $response['error']=false;
-        //     $response['message']="Successfully user created";
-        // }else{
-        //     // echo "user cannot created";
-        //     $response['error']=true;
-        //     $response['message']="user cannot created";
-        // }
+        if($result==1){
+            // echo "successfully created a user";
+            $response['error']=false;
+            $response['message']="Successfully user created";
+        }else{
+            // echo "user cannot created";
+            $response['error']=true;
+            $response['message']="user cannot created";
+        }
 
     }else{
         echo "fill all fields";

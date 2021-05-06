@@ -9,6 +9,13 @@ class operations{
         $dbname="taskpf";
 
         $this->conn = mysqli_connect($servername,$username,$password,$dbname);
+        // // Create database
+        // $sql = "CREATE DATABASE taskpf";
+        // if ($this->conn->query($sql) === TRUE) {
+        //     echo "Database created successfully";
+        // } else {
+        // echo "Error creating database: " . $conn->error;
+        // }
     }
 
     // function to check dublicate email address
